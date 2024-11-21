@@ -7,12 +7,35 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "npm run dev -w backend",
     "frontend": "npm run dev -w frontend",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\""
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "prepare": "husky",
+    "build:frontend": "npm run build --prefix ./frontend",
+    "format:frontend": "npm run format --prefix ./frontend",
+    "lint:frontend": "eslint frontend",
+    "lint:backend": "eslint backend",
+    "lint": "npm run lint:frontend && npm run lint:backend"
   },
   "author": "",
   "license": "ISC",
-  "workspaces": ["backend", "frontend"],
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "@eslint/js": "^9.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.15.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0"
   }
 }
